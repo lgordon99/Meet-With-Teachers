@@ -54,6 +54,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="225" id="yIk-Zc-gLO"/>
                                 </constraints>
+                                <color key="minimumTrackTintColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="maximumTrackTintColor" red="1" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="periodSliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="3VR-wN-uAX"/>
                                 </connections>
@@ -75,6 +78,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="225" id="M6j-sh-zur"/>
                                 </constraints>
+                                <color key="minimumTrackTintColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="maximumTrackTintColor" red="1" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="daySliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="sOG-UQ-qhU"/>
                                 </connections>
