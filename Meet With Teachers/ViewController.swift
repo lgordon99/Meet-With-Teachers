@@ -89,14 +89,15 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        availabilityLabel.hidden = false
-        availabilityLabel.text = "Availability"
-        time = day + period
         teacher = teachers[row]
         updateText()
     }
     
     func updateText () {
+        availabilityLabel.hidden = false
+        availabilityLabel.text = "Availability"
+        time = day + period
+        
         if teacher == "Ms. Lubman" {
             for item in lubman {
                 if time == item {
