@@ -55,6 +55,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         periodLabel.text = "Period: 1"
         periodSlider.setValue(1, animated: true)
         availabilityLabel.hidden = true
+        day = "A"
+        period = "1"
+        time = "A1"
     }
     
     @IBAction func daySliderChanged(sender: AnyObject) {
