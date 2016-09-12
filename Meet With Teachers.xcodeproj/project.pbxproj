@@ -96,7 +96,7 @@
 				TargetAttributes = {
 					749B6BA01D5BA75F00851666 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = F54X9SW3G2;
+						DevelopmentTeam = BE6LEPZ3LB;
 					};
 				};
 			};
@@ -295,6 +295,7 @@
 				749B6BB51D5BA75F00851666 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

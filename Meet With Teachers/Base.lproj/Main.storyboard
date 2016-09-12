@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meet With Teachers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5u-Kg-i0N">
-                                <rect key="frame" x="67.5" y="20" width="279" height="40"/>
+                                <rect key="frame" x="67" y="20" width="279" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="PgV-9W-NMe"/>
                                 </constraints>
@@ -32,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wGK-5g-hST">
-                                <rect key="frame" x="150.5" y="636.5" width="111.5" height="51.5"/>
+                                <rect key="frame" x="150" y="636" width="111.5" height="51.5"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="25"/>
                                 <state key="normal" title="Reset"/>
@@ -47,7 +47,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rR5-Sj-CJ0">
-                                <rect key="frame" x="47" y="264" width="320" height="216"/>
+                                <rect key="frame" x="47" y="312" width="320" height="216"/>
                             </pickerView>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="7" translatesAutoresizingMaskIntoConstraints="NO" id="aRa-eW-mJo">
                                 <rect key="frame" x="148" y="210" width="229" height="31"/>
@@ -62,13 +62,13 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Availability" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYl-YB-upr">
-                                <rect key="frame" x="20" y="526" width="372.5" height="27.5"/>
+                                <rect key="frame" x="20" y="550.5" width="372.5" height="27.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Period: 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qkQ-Y4-Nqb">
-                                <rect key="frame" x="44" y="214.5" width="85.5" height="27.5"/>
+                                <rect key="frame" x="44" y="214" width="85.5" height="27.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -85,6 +85,14 @@
                                     <action selector="daySliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="sOG-UQ-qhU"/>
                                 </connections>
                             </slider>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TQv-rC-fUp">
+                                <rect key="frame" x="158" y="292" width="97" height="30"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="searchTFAction:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="2oe-95-88a"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -97,7 +105,9 @@
                             <constraint firstItem="ZmU-8X-Ci3" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="JMf-cx-OpY"/>
                             <constraint firstItem="qkQ-Y4-Nqb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" multiplier="2.2" id="JmH-se-DmB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2yQ-Yz-AZq" secondAttribute="trailing" multiplier="1.05" id="Moc-rD-X1q"/>
-                            <constraint firstItem="wGK-5g-hST" firstAttribute="top" secondItem="dYl-YB-upr" secondAttribute="bottom" multiplier="1.15" id="RUs-Xc-IFr"/>
+                            <constraint firstItem="TQv-rC-fUp" firstAttribute="top" secondItem="aRa-eW-mJo" secondAttribute="bottom" constant="52" id="PMK-A9-lTI"/>
+                            <constraint firstItem="wGK-5g-hST" firstAttribute="top" secondItem="dYl-YB-upr" secondAttribute="bottom" multiplier="1.1" id="RUs-Xc-IFr"/>
+                            <constraint firstItem="TQv-rC-fUp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Yn1-pg-w6O"/>
                             <constraint firstItem="dYl-YB-upr" firstAttribute="centerX" secondItem="wGK-5g-hST" secondAttribute="centerX" id="bRL-eb-Vkh"/>
                             <constraint firstItem="ZmU-8X-Ci3" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="hqC-k4-DcN"/>
                             <constraint firstItem="ZmU-8X-Ci3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iNq-BW-63S"/>
@@ -105,7 +115,8 @@
                             <constraint firstItem="aRa-eW-mJo" firstAttribute="top" secondItem="2yQ-Yz-AZq" secondAttribute="bottom" multiplier="1.4" id="jIw-Lv-CWF"/>
                             <constraint firstItem="b5u-Kg-i0N" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="jgx-fz-Hz2"/>
                             <constraint firstItem="wGK-5g-hST" firstAttribute="width" secondItem="ZmU-8X-Ci3" secondAttribute="width" multiplier="0.27" id="jkf-9a-B93"/>
-                            <constraint firstItem="rR5-Sj-CJ0" firstAttribute="top" secondItem="aRa-eW-mJo" secondAttribute="bottom" multiplier="1.1" id="km4-Vu-sSe"/>
+                            <constraint firstItem="rR5-Sj-CJ0" firstAttribute="top" secondItem="aRa-eW-mJo" secondAttribute="bottom" multiplier="1.3" id="km4-Vu-sSe"/>
+                            <constraint firstItem="TQv-rC-fUp" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.4" id="rfr-mX-VY5"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="wGK-5g-hST" secondAttribute="bottom" multiplier="1.07" id="twu-YC-E4Z"/>
                             <constraint firstItem="rR5-Sj-CJ0" firstAttribute="centerX" secondItem="dYl-YB-upr" secondAttribute="centerX" id="wVv-JG-e5F"/>
                             <constraint firstItem="add-nL-K2Y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" multiplier="2.2" id="y3g-ye-Ipc"/>
@@ -121,6 +132,7 @@
                         <outlet property="periodLabel" destination="qkQ-Y4-Nqb" id="xx7-M5-abc"/>
                         <outlet property="periodSlider" destination="aRa-eW-mJo" id="ZBq-Zw-QBI"/>
                         <outlet property="resetButton" destination="wGK-5g-hST" id="EPr-Oh-i7k"/>
+                        <outlet property="searchTF" destination="TQv-rC-fUp" id="yUK-nw-4r1"/>
                         <outlet property="teacherPicker" destination="rR5-Sj-CJ0" id="hUL-6r-5gq"/>
                         <outlet property="titleLabel" destination="b5u-Kg-i0N" id="heV-jE-PEc"/>
                     </connections>
