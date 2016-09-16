@@ -19,7 +19,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var searchTF: UITextField!
     
-    var teachers: [String] = ["Ms. Lubman", "Mr. Lindow", "Ms. Spalding", "Ms. McCutcheon", "Mr. McClintock", "Mr. Tarbath", "Ms. LiCalsi", "Doctor Henry", "Mr. Raisher"]
+    var teachers: [String] = ["Ms. Lubman", "Mr. Lindow", "Ms. Spalding", "Ms. McCutcheon", "Mr. McClintock", "Mr. Tarbath", "Ms. LiCalsi", "Ms. Henry", "Mr. Raisher"]
     var day = "A"
     var period = "1"
     var time = "A1"
@@ -39,12 +39,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         super.viewDidLoad()
         self.teacherPicker.delegate = self
         self.teacherPicker.dataSource = self
-        availabilityLabel.hidden = true
-        resetButton.backgroundColor = UIColor.clearColor()
+        availabilityLabel.isHidden = true
+        resetButton.backgroundColor = UIColor.clear
         resetButton.layer.cornerRadius = 20
         resetButton.layer.borderWidth = 4
-        resetButton.layer.borderColor = UIColor.blueColor().CGColor
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        resetButton.layer.borderColor = UIColor.blue.cgColor
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
 
@@ -58,18 +58,18 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         view.endEditing(true)
     }
 
-    @IBAction func resetButtonTapped(sender: AnyObject) {
+    @IBAction func resetButtonTapped(_ sender: AnyObject) {
         dayLabel.text = "Day: A"
         daySlider.setValue(1, animated: true)
         periodLabel.text = "Period: 1"
         periodSlider.setValue(1, animated: true)
-        availabilityLabel.hidden = true
+        availabilityLabel.isHidden = true
         day = "A"
         period = "1"
         time = "A1"
     }
     
-    @IBAction func daySliderChanged(sender: AnyObject) {
+    @IBAction func daySliderChanged(_ sender: AnyObject) {
         let currentValue = Int(daySlider.value)
         let numbersToLetters: [Int: String] = [1: "A", 2: "B", 3: "C", 4: "D", 5: "E", 6: "F", 7: "G", 8: "H", 9: "I", 10: "J"]
         dayLabel.text = "Day: \(numbersToLetters[currentValue]!)"
@@ -77,16 +77,19 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         updateText()
     }
     
-    @IBAction func periodSliderChanged(sender: AnyObject) {
+    @IBAction func periodSliderChanged(_ sender: AnyObject) {
         let currentValue = Int(periodSlider.value)
         periodLabel.text = "Period: \(currentValue)"
         period = String(currentValue)
         updateText()
     }
     
-    @IBAction func searchTFAction(sender: AnyObject) {
+    @IBAction func searchTFAction(_ sender: AnyObject) {
+        let input = searchTF.text?.lowercased()
         for tea in teachers {
-            if searchTF.text == tea {
+            let nameIndex = tea.lowercased().index(tea.startIndex, offsetBy: 4)
+            
+            if (input?.contains(tea.lowercased().substring(from: nameIndex)))! {
                 teacher = tea
             }
         }
@@ -94,29 +97,29 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         updateText()
     }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return teachers.count
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return teachers[row]
     }
     
-    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         return NSAttributedString(string: teachers[row], attributes: [NSFontAttributeName:UIFont(name: "Avenir", size: 15.0)!,NSForegroundColorAttributeName:UIColor.init(red: 0, green: 255, blue: 255, alpha: 1.0)])
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         teacher = teachers[row]
         updateText()
     }
     
     func updateText () {
-        availabilityLabel.hidden = false
+        availabilityLabel.isHidden = false
         availabilityLabel.text = "Availability"
         time = day + period
         
@@ -183,7 +186,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                     availabilityLabel.text = "\(teacher) is not available \(time). Click \"Reset\" to try another period."
                 }
             }
-        } else if teacher == "Doctor Henry" {
+        } else if teacher == "Ms. Henry" {
             for item in henry {
                 if time == item {
                     availabilityLabel.text = "\(teacher) is available to meet \(time)!"
